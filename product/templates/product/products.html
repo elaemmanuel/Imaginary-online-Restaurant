@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+{%  load static %}
+
+{% block content-main %}
+
+<div class="products" >
+
+<!-- Menu Section -->
+ 
+<div class="tab-header text-center">
+  <br><br>
+  <h1 style="font-family: Verdana, Geneva, Tahoma, sans-serif;  color: blueviolet;">HealthyMilky Products</h1>
+</div>
+
+<div class="product-container"> 
+   <div class="row">  
+    {% for x in products %}  
+    <div class="col-sm-4"> 
+      <br><br><br><br>  
+      <div class="card" style="width: 18rem;  height: 250px;">
+        <a href="{% url 'product:product-page'  x.id %}">
+          <img src="{{ x.image.url }}" class="card-img-top" alt="...">
+        </a>
+        <div class="card-body">
+          <h5 class="card-title">{{ x.name }}🌟</h5>
+          <!-- <p class="card-text">{{ x.description }}</p> -->
+          <a href="{% url 'product:product-page' x.id %}"  class="btn btn-primary">${{ x.price }}</a>
+        </div>
+      </div>
+    </div>
+
+  {% endfor %}
+</div>
+</div>
+
+
+</div>
+
+{% endblock content-main %}

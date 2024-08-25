@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}
+User Registration
+{% endblock title %}
+
+
+{% block content-main %}
+
+<div class="register-page">
+
+<h2 style="font-family: Verdana, Geneva, Tahoma, sans-serif;  color: blueviolet;"> User Registration 🧑</h2>
+
+<form class="form-class" method="post" action="{% url 'user:register' %}">
+{% csrf_token %}
+
+{{form}}
+
+<button class="form-submit">Submit</button>
+</form>
+
+</div>
+
+{% endblock content-main %}

@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}
+User Login
+{% endblock title %}
+
+
+{% block content-main %}
+<div class="login-page">
+
+    <br><br>
+    <h1 style="font-family: Verdana, Geneva, Tahoma, sans-serif;  color: blueviolet;"> User Login 🔐</h1>
+    <form class="form-class" method="post" action="{% url 'user:login' %}">
+    {% csrf_token %}
+    
+    {{form}}
+    {% if request.Get.next %}
+    <input type="hidden" name="next" value="{{request.Get.next}}"/>
+    {% endif %}
+    <button class="form-submit">Submit</button>
+    </form>
+    
+
+</div>
+
+{% endblock content-main %}
